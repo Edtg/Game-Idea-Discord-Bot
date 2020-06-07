@@ -40,10 +40,11 @@ async def on_message(message):
         return
     
     message.content = message.content.lower()
-    if "idea" in message.content:
+    if message.content.startswith("!idea"):
         idea = GetIdea()
         await message.channel.send("Here's an idea:")
         await message.channel.send(f"Can you make a game in the **{idea[0]}** genre using **{idea[1]}** rule,\nthe environment could be **{idea[2]}** and the goal is **{idea[3]}**.\nAnd here's a wildcard, use **{idea[4]}**")
+        await message.channel.send("If you don't like this idea, just ask for another one!")
     
 
 
